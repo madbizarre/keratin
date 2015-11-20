@@ -165,4 +165,25 @@ INOAR G-Hair
 Маска 1000 мл. "
   }  
   
+  {
+  "id": "7",
+  "name": "Inoar Progress Solution 10 мл",
+  "manufacturer": "Inoar",
+  "price": "300",
+  "volume": "10",
+  "url": "http://keratinspb.ru/user/tovar//t117.jpg",
+  "description": {
+    "long": "- Убирает неприятное жжение кожи головы клиента
+- Уменьшает запах формальдегида до 70%
+- На 70% сокращает выделение дыма
+- 10 мл хватает на 100 мл кератина.
+
+Самое передовое и многофункциональное средство для кератинового выпрямления.
+
+При работе с Составами Inoar Moroccan и Inoar G-Hair, советуем использовать Inoar Progress Solution..",
+    "short": "Inoar Progress Solution 10 мл
+Уменьшает запах и выделение дыма
+на 70%. "
+  }
+  
 }
