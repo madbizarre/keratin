@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <% var title = "Кератин " %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+          integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body data-spy="scroll" data-target="#navbar">
+
+<input type="checkbox" id="tog">
+<label for="tog" id="ham">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+
+<nav class="nav-desktop">
+    <ul class="list-unstyled">
+        <li><a href="#intro">Домой</a></li>
+        <li><a href="#1">Как мы работаем</a></li>
+        <li><a href="#2">Товары</a></li>
+        <li><a href="#3">Ссылка 3</a></li>
+    </ul>
+</nav>
+
+<header class="intro text-center white" id="intro" role="presentation">
+    <div class="container">
+        <h1 class="text-uppercase vcenter col-xs-12"><%= title %></h1>
+        <button class="btn btn-rectangle-lg btn-transparent" role="button">Свяжитесь с нами!</button>
+    </div>
+</header>
+
+<main>
+
+    <section class="color1" id="1">
+        <div class="container text-center">
+            <h1 class="text-uppercase ">Как мы работаем</h1>
+            <hr class="subtitle-divider"/>
+        </div>
+    </section>
+
+    <section class="color2" id="2">
+        <div class="container">
+            <h1 class="text-uppercase text-center">Товар</h1>
+            <hr class="subtitle-divider"/>
+        </div>
+    </section>
+
+    <section class="color1" id="3">
+        <div class="container">
+            <h1 class="text-uppercase text-center">Заголовок 3</h1>
+            <hr class="subtitle-divider"/>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <ul class="list-inline text-center footer-list">
+            <li class="col-xs-6 col-lg-3">
+                <span class="fa fa-phone fa-4x"></span>
+                <address>
+                    <p><strong>Телефон:</strong><br/>
+                        +7 (123) 456-78-90
+                    </p>
+                </address>
+            </li>
+            <li class="col-xs-6 col-lg-3">
+                <span class="fa fa-envelope fa-4x"></span>
+                <address>
+                    <p><strong>Почта:</strong><br/>
+                        example@gmail.com
+                    </p>
+                </address>
+            </li>
+            <li class="col-xs-6 col-lg-3 text-center">
+                <p class="footer-menu-header">Меню</p>
+                <ul class="list-unstyled footer-menu">
+                    <li><a href="#">Наверх</a></li>
+                    <li><a href="#1">Ссылка 1</a></li>
+                    <li><a href="#2">Ссылка 2</a></li>
+                    <li><a href="#3">Ссылка 3</a></li>
+                </ul>
+            </li>
+            <li class="col-xs-6 col-lg-3">
+                <ul class="list-inline footer-social-list">
+                    <li>
+                        <a href="https://vk.com/">
+                            <img src="img/social-icons/vk.png" alt="Вконтакте" height="50"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://facebook.com/">
+                            <img src="img/social-icons/facebook.png" alt="Facebook" height="50"/>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p class="col-xs-12">© <%= new Date().getFullYear() %> <%= title %></p>
+    </div>
+</footer>
+
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModal">
+    <div class="modal-dialog">
+        <div class="modal-content contact">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center contact-title">Оставьте заявку</h4>
+            </div>
+            <div class="modal-body text-center">
+                <form id="contact" action="" method="post">
+                    <fieldset>
+                        <label for="inputName"></label>
+                        <input type="text" id="inputName" placeholder="Имя*" tabindex="1" autofocus required/>
+                    </fieldset>
+                    <fieldset>
+                        <label for="inputEmail"></label>
+                        <input type="email" id="inputEmail" placeholder="Email" tabindex="2"/>
+                    </fieldset>
+                    <fieldset>
+                        <label for="inputTel"></label>
+                        <input type="tel" id="inputTel" placeholder="Телефон*" tabindex="4"
+                               pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required/>
+                    </fieldset>
+                    <fieldset>
+                        <label for="inputComment"></label>
+                        <textarea id="inputComment" placeholder="Сообщение*" tabindex="5" required></textarea>
+                    </fieldset>
+                    <button type="submit" id="inputSubmit" data-loading-text="Отправляется"
+                            class="btn btn-rectangle-lg">Отправить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+        integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+        crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
