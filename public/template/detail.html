@@ -1,0 +1,19 @@
+<section class="color1">
+    <div class="container">
+        <h1 class="text-center text-uppercase">{{product.name}}</h1>
+        <hr class="subtitle-divider"/>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 text-center">
+                <img class="img-rounded" data-ng-src="{{product.url}}" title="{{product.description.short}}" alt=""
+                     height="256"/><br/>
+
+                <small>{{product.volume}}</small>
+                <br/>
+                <strong>{{product.price | currency:undefined:0}}</strong>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+                <p>{{product.description.long}}</p>
+            </div>
+        </div>
+    </div>
+</section>

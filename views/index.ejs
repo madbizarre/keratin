@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru-RU">
+<html lang="ru-RU" data-ng-app="keratin">
 <head>
-    <% var title = "Кератин " %>
+    <% var title = "Продажа кератина и косметики для выпрямления волос" %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,39 +36,22 @@
 
 <header class="intro text-center white" id="intro" role="presentation">
     <div class="container">
-        <h1 class="text-uppercase vcenter col-xs-12"><%= title %></h1>
-        <button class="btn btn-rectangle-lg btn-transparent" role="button">Свяжитесь с нами!</button>
+        <h1 class="text-uppercase vcenter col-xs-12">Продажа кератина и косметики для выпрямления волос</h1>
+        <button class="btn btn-default-lg btn-color5" style="margin-bottom: 25px; margin-right: 25px;">Свяжитесь с нами!</button>
+        <button class="btn btn-default-lg btn-color5 btn-no-border" style="margin-bottom: 25px; margin-right: 25px;">Свяжитесь с нами!</button> <br/>
+        <button class="btn btn-default-lg btn-color5 btn-round" style="margin-bottom: 25px; margin-right: 25px;">Свяжитесь с нами!</button>
+        <button class="btn btn-default-lg btn-color5 btn-no-border btn-round" style="margin-bottom: 25px; margin-right: 25px;">Свяжитесь с нами!</button>
     </div>
 </header>
 
 <main>
-
-    <section class="color1" id="1">
-        <div class="container text-center">
-            <h1 class="text-uppercase ">Как мы работаем</h1>
-            <hr class="subtitle-divider"/>
-        </div>
-    </section>
-
-    <section class="color2" id="2">
-        <div class="container">
-            <h1 class="text-uppercase text-center">Товар</h1>
-            <hr class="subtitle-divider"/>
-        </div>
-    </section>
-
-    <section class="color1" id="3">
-        <div class="container">
-            <h1 class="text-uppercase text-center">Заголовок 3</h1>
-            <hr class="subtitle-divider"/>
-        </div>
-    </section>
+    <ng-view></ng-view>
 </main>
 
 <footer>
     <div class="container">
         <ul class="list-inline text-center footer-list">
-            <li class="col-xs-6 col-lg-3">
+            <li class="col-xs-6 col-sm-3">
                 <span class="fa fa-phone fa-4x"></span>
                 <address>
                     <p><strong>Телефон:</strong><br/>
@@ -76,7 +59,7 @@
                     </p>
                 </address>
             </li>
-            <li class="col-xs-6 col-lg-3">
+            <li class="col-xs-6 col-sm-3">
                 <span class="fa fa-envelope fa-4x"></span>
                 <address>
                     <p><strong>Почта:</strong><br/>
@@ -84,16 +67,16 @@
                     </p>
                 </address>
             </li>
-            <li class="col-xs-6 col-lg-3 text-center">
+            <li class="col-xs-6 col-sm-3 text-center">
                 <p class="footer-menu-header">Меню</p>
                 <ul class="list-unstyled footer-menu">
                     <li><a href="#">Наверх</a></li>
-                    <li><a href="#1">Ссылка 1</a></li>
-                    <li><a href="#2">Ссылка 2</a></li>
+                    <li><a href="#1">Как мы работаем</a></li>
+                    <li><a href="#2">Товары</a></li>
                     <li><a href="#3">Ссылка 3</a></li>
                 </ul>
             </li>
-            <li class="col-xs-6 col-lg-3">
+            <li class="col-xs-6 col-sm-3">
                 <ul class="list-inline footer-social-list">
                     <li>
                         <a href="https://vk.com/">
@@ -140,7 +123,7 @@
                         <textarea id="inputComment" placeholder="Сообщение*" tabindex="5" required></textarea>
                     </fieldset>
                     <button type="submit" id="inputSubmit" data-loading-text="Отправляется"
-                            class="btn btn-rectangle-lg">Отправить
+                            class="btn btn-default-lg btn-color5">Отправить
                     </button>
                 </form>
             </div>
@@ -149,9 +132,14 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.7/i18n/angular-locale_ru-ru.js"></script>
+<script src="https://code.angularjs.org/1.4.7/angular-route.min.js"></script>
+<script src="https://code.angularjs.org/1.4.7/angular-resource.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
         integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
         crossorigin="anonymous"></script>
+
 <script src="js/main.js"></script>
 </body>
 </html>

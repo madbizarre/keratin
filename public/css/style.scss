@@ -126,9 +126,14 @@ hr {
   float: none;
 }
 
-.btn-rectangle-lg, .btn-rectangle-sm {
+.btn:focus, .btn:active {
+  outline: none !important;
+}
+
+.btn-default-lg, .btn-default-sm {
   color: black;
   @include border-radius(0);
+  border: 1px black solid;
   font-family: 'Open Sans';
   font-size: larger;
   background-color: $red;
@@ -149,12 +154,27 @@ hr {
   font-weight: bold;
 }
 
-.btn-rectangle-lg {
+.btn-default-lg {
   padding: 15px 56px;
 }
 
-.btn-rectangle-sm {
+.btn-default-sm {
   padding: 7px 28px;
+}
+
+.btn-color5 {
+  background-color: $color5;
+  &:hover {
+    background-color: lighten($color5, 5);
+  }
+}
+
+.btn-round {
+  @include border-radius(60px);
+}
+
+.btn-no-border {
+  border: none;
 }
 
 .gray {
