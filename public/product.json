@@ -400,27 +400,38 @@ BB Gloss EXPERT подойдет для легкой и средней волн�
   }
   
   {
-  "id": "0000",
-  "name": "NAME",
-  "manufacturer": "BRAND",
-  "price": "000000",
-  "volume": "0000",
-  "url": " ",
+  "id": "17",
+  "name": "W.One Premium 100 мл Жидкий выпрямитель",
+  "manufacturer": "W.One",
+  "price": "2500",
+  "volume": "100",
+  "url": "http://keratinspb.ru/user/images//tovar_tmb/t136.jpg",
   "description": {
     "long": "LONG.",
-    "short": "SHORT. "
+    "short": "W.One Premium 100 мл Жидкий выпрямитель. "
   }
   
   {
-  "id": "0000",
-  "name": "NAME",
-  "manufacturer": "BRAND",
-  "price": "000000",
-  "volume": "0000",
-  "url": " ",
+  "id": "18",
+  "name": "W.One Premium 1000 мл Жидкий выпрямитель",
+  "manufacturer": "W.One",
+  "price": "20500",
+  "volume": "1000",
+  "url": "http://keratinspb.ru/user/images//tovar_tmb/t137.jpg",
   "description": {
     "long": "LONG.",
-    "short": "SHORT. "
+    "short": "W.One Premium 1000 мл Жидкий выпрямитель. "
+  }
+ {
+  "id": "19",
+  "name": "Выпрямляющий уход W.Two Flex 500/500",
+  "manufacturer": "W.Two",
+  "price": "20500",
+  "volume": "500",
+  "url": "http://keratinspb.ru/user/images//tovar_tmb/t139.jpg",
+  "description": {
+    "long": "LONG.",
+    "short": "Выпрямляющий уход W.Two Flex 500/500. "
   }
   
   
