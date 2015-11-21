@@ -9,6 +9,10 @@
                         templateUrl:'template/home.html',
                         controller: ''
                     })
+                    .when('/delivery',{
+                        templateUrl:'template/delivery.html',
+                        controller: ''
+                    })
                     .when('/product/:productId', {
                         templateUrl:'template/detail.html',
                         controller:'ProductDetailController'
