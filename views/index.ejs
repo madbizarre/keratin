@@ -16,9 +16,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#navbar">
+<!--<body data-spy="scroll" data-target="#navbar">-->
+<body>
 
-<input type="checkbox" id="tog">
+<!--<input type="checkbox" id="tog">
 <label for="tog" id="ham">
     <span></span>
     <span></span>
@@ -32,11 +33,55 @@
         <li><a href="#2">Товары</a></li>
         <li><a href="#3">Ссылка 3</a></li>
     </ul>
-</nav>
+</nav>-->
+
+<div class="button_container" id="toggle">
+    <span class="top"></span>
+    <span class="middle"></span>
+    <span class="bottom"></span>
+</div>
+
+<div class="overlay" id="overlay">
+    <nav class="overlay-menu">
+        <ul>
+            <li><a data-ng-href="#/">Домой</a></li>
+            <li><a data-ng-href="#/#products">Товары</a></li>
+            <li><a data-ng-href="#/delivery#delivery">Доставка</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="header">
+    <div class="burger">
+        <div class="burger__patty"></div>
+        <div class="burger__patty"></div>
+        <div class="burger__patty"></div>
+    </div>
+
+    <nav class="menu">
+        <div class="menu__brand">
+            <a href=""><div class="logo"></div></a>
+        </div>
+        <ul class="menu__list">
+            <li class="menu__item"><a data-ng-href="#/" class="menu__link">Домой</a></li>
+            <li class="menu__item"><a data-ng-href="#/#products" class="menu__link">Товары</a></li>
+            <li class="menu__item"><a data-ng-href="#/delivery#delivery" class="menu__link">Доставка</a></li>
+            <li class="menu__item">
+                <a href="https://twitter.com/ettrics" target="_blank" class="menu__link menu__link--social"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li class="menu__item">
+                <a href="https://dribbble.com/ettrics" target="_blank" class="menu__link menu__link--social">
+                    <i class="fa fa-dribbble"></i></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
 
 <header class="intro text-center white" id="intro" role="presentation">
     <div class="container">
-        <h1 class="text-uppercase vcenter col-xs-12">Продажа кератина и косметики для выпрямления волос</h1>
+        <h1 class="text-uppercase vcenter col-xs-12">Продажа кератина и косметики<br/> для выпрямления волос</h1>
         <button class="btn btn-default-lg btn-color5" style="margin-bottom: 25px; margin-right: 25px;">Свяжитесь с нами!</button>
         <button class="btn btn-default-lg btn-color5 btn-no-border" style="margin-bottom: 25px; margin-right: 25px;">Свяжитесь с нами!</button> <br/>
         <button class="btn btn-default-lg btn-color5 btn-round" style="margin-bottom: 25px; margin-right: 25px;">Свяжитесь с нами!</button>
@@ -141,5 +186,63 @@
         crossorigin="anonymous"></script>
 
 <script src="js/main.js"></script>
+<script>
+    $('#toggle').click(function() {
+        $(this).toggleClass('active');
+        $('#overlay').toggleClass('open');
+    });
+    (function() {
+
+        var Menu = (function() {
+            var burger = document.querySelector('.burger');
+            var menu = document.querySelector('.menu');
+            var menuList = document.querySelector('.menu__list');
+            var brand = document.querySelector('.menu__brand');
+            var menuItems = document.querySelectorAll('.menu__item');
+
+            var active = false;
+
+            var toggleMenu = function() {
+                if (!active) {
+                    menu.classList.add('menu--active');
+                    menuList.classList.add('menu__list--active');
+                    brand.classList.add('menu__brand--active');
+                    burger.classList.add('burger--close');
+                    for (var i = 0, ii = menuItems.length; i < ii; i++) {
+                        menuItems[i].classList.add('menu__item--active');
+                    }
+
+                    active = true;
+                } else {
+                    menu.classList.remove('menu--active');
+                    menuList.classList.remove('menu__list--active');
+                    brand.classList.remove('menu__brand--active');
+                    burger.classList.remove('burger--close');
+                    for (var i = 0, ii = menuItems.length; i < ii; i++) {
+                        menuItems[i].classList.remove('menu__item--active');
+                    }
+
+                    active = false;
+                }
+            };
+
+            var bindActions = function() {
+                burger.addEventListener('click', toggleMenu, false);
+            };
+
+            var init = function() {
+                bindActions();
+            };
+
+            return {
+                init: init
+            };
+
+        }());
+
+        Menu.init();
+
+    }());
+</script>
 </body>
 </html>

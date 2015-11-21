@@ -2,6 +2,20 @@
 
 /* MIXINS
 -------------------------------------------------- */
+
+@mixin animation($value){
+  -webkit-animation: $value;
+  -o-animation: $value;
+  animation: $value;
+}
+
+@mixin animation-delay($value){
+  -webkit-animation-delay: $value;
+  -moz-animation-delay: $value;
+  -o-animation-delay: $value;
+  animation-delay: $value;
+}
+
 @mixin border-radius($values) {
   -webkit-border-radius: $values;
   -moz-border-radius: $values;
@@ -113,8 +127,6 @@ section {
     padding-bottom: 0;
   }
 }
-
-
 
 hr {
   border-top: 1px solid #000;
@@ -282,6 +294,358 @@ hr {
   }
 }
 
+$color-background: #F5F5F5;
+$color-main: #FF5252;
+$color-active: #FFF;
+$color-link: #FFF;
+
+$button-height: 27px;
+$button-width: 35px;
+.button_container {
+  position: fixed;
+  top: 10%;
+  right: 2%;
+  height: $button-height;
+  width: $button-width;
+  cursor: pointer;
+  z-index: 1050;
+  @include transition(opacity .25s ease);
+
+  &:hover {
+    opacity: .7;
+  }
+
+  &.active {
+    .top {
+      @include transform(translateY(11px) translateX(0) rotate(45deg));
+      background: $color-active;
+    }
+    .middle {
+      opacity: 0;
+      background: $color-active;
+    }
+
+    .bottom {
+      @include transform(translateY(-11px) translateX(0) rotate(-45deg));
+      background: $color-active;
+    }
+  }
+
+  span {
+    background: $color-main;
+    border: none;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include transition(all .35s ease);
+    cursor: pointer;
+
+    &:nth-of-type(2) {
+      top: 11px;
+    }
+
+    &:nth-of-type(3) {
+      top: 22px;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  background: $color-main;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  -webkit-transition: opacity .35s, visibility .35s, height .35s;
+  -moz-transition: opacity .35s, visibility .35s, height .35s;
+  -ms-transition: opacity .35s, visibility .35s, height .35s;
+  -o-transition: opacity .35s, visibility .35s, height .35s;
+  transition: opacity .35s, visibility .35s, height .35s;
+  &.open {
+    opacity: .9;
+    visibility: visible;
+    height: 100%;
+    z-index: 1049;
+    will-change: opacity, transform;
+    li {
+      @include animation-delay(.35s);
+      @include animation(fadeInRight .5s ease forwards);
+      &:nth-of-type(2) {
+        @include animation-delay(.4s);
+      }
+      &:nth-of-type(3) {
+        @include animation-delay(.45s);
+      }
+      &:nth-of-type(4) {
+        @include animation-delay(.50s);
+      }
+    }
+  }
+  nav {
+    position: relative;
+    height: 70%;
+    top: 50%;
+    @include transform(translateY(-50%));
+    font-size: 50px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%;
+
+    li {
+      display: block;
+      height: 25%;
+      min-height: 50px;
+      position: relative;
+      opacity: 0;
+
+      a {
+        display: block;
+        position: relative;
+        color: $color-link;
+        text-decoration: none;
+        overflow: hidden;
+
+        &:hover:after,
+        &:focus:after,
+        &:active:after {
+          width: 100%;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0%;
+          height: 3px;
+          background: $color-link;
+          will-change: transform;
+          @include transform(translateX(-50%));
+          @include transition(.35s);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+
+$primary-color: #38C5B9;
+
+@mixin easeOut {
+  transition: all .4s cubic-bezier(0.23, 1, 0.32, 1)
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+.header {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+}
+
+.burger {
+  position: absolute;
+  z-index: 10;
+  right: 25px;
+  top: 25px;
+  cursor: pointer;
+  transform: rotateY(0deg);
+  @include easeOut;
+
+  &__patty {
+    width: 28px;
+    height: 2px;
+    margin: 0 0 4px 0;
+    background: white;
+    @include easeOut;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // transform burger into 'x'
+  &--close {
+    transform: rotate(180deg);
+
+    .burger__patty {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -4px);
+      }
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+
+  &--active {
+    visibility: visible;
+  }
+
+  &__brand,
+  &__list {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    background: mix(black, $primary-color, 20);
+    background: rgba(mix(black, $primary-color, 20), 0.95);
+    list-style-type: none;
+    @include transform(translate3d(0, -100%, 0));
+    @include easeOut;
+
+    &--active {
+      @include transform(translate3d(0, 0, 0));
+    }
+  }
+
+  &__brand {
+    background: $primary-color;
+    background: rgba($primary-color, 0.5);
+    @include easeOut;
+    @include transform(translate3d(0, 100%, 0));
+
+    &--active {
+      @include transform(translate3d(0, 0, 0));
+    }
+  }
+
+  &__item {
+    @include transform(translate3d(500px, 0, 0));
+    @include easeOut;
+
+    &--active {
+      @include transform(translate3d(0, 0, 0));
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    padding: 15px 0;
+    font-weight: 300;
+    color: white;
+    text-decoration: none !important;
+    @include easeOut;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 10px;
+      height: 2px;
+      background: white;
+      @include transform(translateX(-50%));
+      @include easeOut;
+    }
+
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  // add delay to each menu item
+  @for $x from 1 through 6 {
+    .menu__item:nth-child(#{$x}) {
+      transition-delay: $x * .1s;
+    }
+  }
+}
+
+// responsive tablet view
+@include tablet {
+  ul.menu__list,
+  div.menu__brand {
+    float: none;
+    width: 100%;
+    min-height: 0;
+
+    &--active {
+      @include transform(translate3d(0, 0, 0));
+    }
+  }
+
+  .menu__list {
+    height: 75vh;
+    @include transform(translate3d(-100%, 0, 0));
+  }
+
+  .menu__link {
+    font-size: 24px;
+  }
+
+  .menu__brand {
+    height: 25vh;
+    @include transform(translate3d(100%, 0, 0));
+
+    .logo {
+      width: 90px;
+      height: 90px;
+    }
+  }
+}
+
+// make the demo look nice, not required for your own use.
+.logo {
+  width: 200px;
+  height: 200px;
+  background: lighten(black, 10);
+  border-radius: 50%;
+}
+
+
 /* INTRO
 -------------------------------------------------- */
 
@@ -296,7 +660,6 @@ hr {
     font-family: 'Open Sans';
     padding-top: 30vh;
     text-shadow: 2px 2px 10px black, 0 0 5rem black;
-    z-index: 99;
   }
 }
 
