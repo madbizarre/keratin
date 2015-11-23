@@ -195,7 +195,7 @@ hr {
 $primary-color: #38C5B9;
 
 @mixin easeOut {
-  transition: all .4s cubic-bezier(0.23, 1, 0.32, 1)
+  @include transition(all .4s cubic-bezier(0.23, 1, 0.32, 1));
 }
 
 @mixin tablet {
@@ -216,7 +216,7 @@ $primary-color: #38C5B9;
   right: 25px;
   top: 25px;
   cursor: pointer;
-  transform: rotateY(0deg);
+  @include transform(rotateY(0deg));
   @include easeOut;
 
   &__patty {
@@ -233,17 +233,17 @@ $primary-color: #38C5B9;
 
   // transform burger into 'x'
   &--close {
-    transform: rotate(180deg);
+    @include transform(rotate(180deg));
 
     .burger__patty {
       &:nth-child(1) {
-        transform: rotate(45deg) translate(4px, 4px);
+        @include transform(rotate(45deg) translate(4px, 4px));
       }
       &:nth-child(2) {
         opacity: 0;
       }
       &:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -4px);
+        @include transform(rotate(-45deg) translate(5px, -4px));
       }
     }
   }
@@ -263,6 +263,7 @@ $primary-color: #38C5B9;
   &__list {
     display: flex;
     flex-flow: column wrap;
+    -webkit-flex-flow: column wrap;
     align-items: center;
     justify-content: center;
     float: left;
@@ -290,7 +291,6 @@ $primary-color: #38C5B9;
     background: rgba($primary-color, 0.5);
     @include easeOut;
     @include transform(translate3d(0, 100%, 0));
-
     &--active {
       @include transform(translate3d(0, 0, 0));
     }
@@ -337,7 +337,11 @@ $primary-color: #38C5B9;
   // add delay to each menu item
   @for $x from 1 through 6 {
     .menu__item:nth-child(#{$x}) {
-      transition-delay: $x * .1s;
+      -webkit-transition-delay: $x*.1s;
+      -moz-transition-delay: $x*.1s;
+      -ms-transition-delay: $x*.1s;
+      -o-transition-delay: $x*.1s;
+      transition-delay: $x*.1s;
     }
   }
 }
@@ -381,7 +385,7 @@ $primary-color: #38C5B9;
   height: 200px;
   background: $color5 url(../img/logo.png) center center no-repeat;
   @include background-size(cover);
-  border-radius: 50%;
+  @include border-radius(50%);
 }
 
 
@@ -405,10 +409,6 @@ $primary-color: #38C5B9;
 
 /* MAIN CONTENT
 -------------------------------------------------- */
-
-.divider {
-  margin: 80px 0;
-}
 
 .subtitle-divider {
   width: 20%;
@@ -447,113 +447,6 @@ $primary-color: #38C5B9;
   }
   h4 {
     height: 2em;
-  }
-}
-
-/* SECOND REVIEWS
--------------------------------------------------- */
-
-$review2-item-width: 600px;
-$reviews2-item-count: 3;
-$reviews2-item-duration: 7.5s;
-.horizontal-slider {
-  //width: $review2-item-width;
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-  .items {
-    width: $reviews2-item-count*100%;
-    -webkit-animation: hscroll $reviews2-item-count*$reviews2-item-duration infinite;
-    -moz-animation: hscroll $reviews2-item-count*$reviews2-item-duration infinite;
-    -ms-animation: hscroll $reviews2-item-count*$reviews2-item-duration infinite;
-    animation: hscroll $reviews2-item-count*$reviews2-item-duration infinite;
-  }
-  .item {
-    margin: 0;
-    float: left;
-    width: 100%/$reviews2-item-count;
-    .reviews2-photo {
-      vertical-align: top;
-      padding: 0 20px;
-    }
-    .reviews2-name {
-      font-size: 3rem;
-    }
-    .reviews2-profession {
-      font-size: 1.4rem;
-    }
-    .reviews2-comment {
-      font-size: 1.6rem;
-    }
-  }
-}
-
-@-webkit-keyframes hscroll {
-  // 100/n - 6.25
-  0%, 26.75% {
-    margin-left: 0
-  }
-  33%, 59.75% {
-    margin-left: -100%;
-  }
-  66%, 93.75% {
-    margin-left: -200%;
-  }
-  100% {
-    margin-left: 0
-  }
-}
-
-@-moz-keyframes hscroll {
-  0%, 26.75% {
-    margin-left: 0
-  }
-  33%, 59.75% {
-    margin-left: -$review2-item-width;
-  }
-  66%, 93.75% {
-    margin-left: -2*$review2-item-width;
-  }
-  100% {
-    margin-left: 0
-  }
-}
-
-@-ms-keyframes hscroll {
-  0%, 26.75% {
-    margin-left: 0
-  }
-  33%, 59.75% {
-    margin-left: -$review2-item-width;
-  }
-  66%, 93.75% {
-    margin-left: -2*$review2-item-width;
-  }
-  100% {
-    margin-left: 0
-  }
-}
-
-@keyframes hscroll {
-  0%, 26.75% {
-    margin-left: 0
-  }
-  33%, 59.75% {
-    margin-left: -100%;
-  }
-  66%, 93.75% {
-    margin-left: -200%;
-  }
-  100% {
-    margin-left: 0;
-  }
-}
-
-.map {
-  padding-top: 0;
-  padding-bottom: 400px;
-  .list-inline {
-    margin-bottom: 0;
   }
 }
 
@@ -657,7 +550,3 @@ footer {
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-
-@media (max-width: 767px) {
-
-}
