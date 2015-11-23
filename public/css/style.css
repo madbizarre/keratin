@@ -365,6 +365,8 @@ hr {
   -o-background-size: cover;
   background-size: cover;
   /* HOVER ANIMATIONS */ }
+  .intro .intro-button-wrapper {
+    padding-top: 70vh; }
   .intro section {
     padding: 0; }
   .intro a {
@@ -401,6 +403,9 @@ hr {
       -ms-transition: all 0.5s ease;
       -o-transition: all 0.5s ease;
       transition: all 0.5s ease; }
+    .intro .business-card .subtitle-divider {
+      padding: 0;
+      margin: 0 auto; }
     .intro .business-card .front {
       z-index: 11;
       width: 100%;
@@ -481,20 +486,11 @@ hr {
         text-align: center;
         position: relative;
         margin-bottom: .75em; }
-        .intro .business-card .front .name:after {
-          content: '';
-          position: absolute;
-          top: 1.6em;
-          width: 20%;
-          left: 40%;
-          right: 40%;
-          height: 1px;
-          background: #2a2b39; }
       .intro .business-card .front .introduction {
         text-align: center;
         color: #2a2b39;
         font-style: italic; }
-      .intro .business-card .front .contact {
+      .intro .business-card .front .contact-card {
         color: #2a2b39;
         margin-left: 1.7em;
         font-weight: 300;
@@ -504,17 +500,17 @@ hr {
         -ms-transform: translateY(400%);
         -o-transform: translateY(400%);
         transform: translateY(400%); }
-        .intro .business-card .front .contact span {
+        .intro .business-card .front .contact-card span {
           color: #2D3244;
           font-size: 1.7em;
           width: 1.3em;
           display: inline-block; }
-        .intro .business-card .front .contact a {
+        .intro .business-card .front .contact-card a {
           position: relative;
           bottom: 0.24em; }
-        .intro .business-card .front .contact li {
+        .intro .business-card .front .contact-card li {
           margin-bottom: 1em; }
-          .intro .business-card .front .contact li:first-child {
+          .intro .business-card .front .contact-card li:first-child {
             margin-top: 1em; }
     .intro .business-card .back {
       width: 100%;
@@ -522,7 +518,7 @@ hr {
       background: #fff;
       backface-visibility: hidden;
       position: absolute; }
-  .intro .front .top .card-logo, .intro .front .top, .intro .front .top:after, .intro .front .nametroduction, .intro .front .contact {
+  .intro .front .top .card-logo, .intro .front .top, .intro .front .top:after, .intro .front .nametroduction, .intro .front .contact-card {
     -webkit-transition: 0.7s all ease-in-out;
     -moz-transition: 0.7s all ease-in-out;
     -ms-transition: 0.7s all ease-in-out;
@@ -550,7 +546,7 @@ hr {
     -ms-transform: translateY(400%);
     -o-transform: translateY(400%);
     transform: translateY(400%); }
-  .intro .flip:hover .front .contact {
+  .intro .flip:hover .front .contact-card {
     -webkit-transform: translateY(-52%);
     -moz-transform: translateY(-52%);
     -ms-transform: translateY(-52%);
@@ -709,7 +705,11 @@ footer {
   .intro .business-card {
     margin-top: 5vh; } }
 @media (max-width: 767px) and (orientation: portrait) {
-  .intro .business-card .front .name:after {
-    top: 3.2em; } }
+  .intro .intro-button-wrapper {
+    padding-top: 80vh; }
+  .intro .business-card .front .contact-card {
+    font-size: 1.15em; }
+    .intro .business-card .front .contact-card li:first-child {
+      margin-top: 0; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -403,6 +403,10 @@ $primary-color: #38C5B9;
   z-index: 99;
   @include background-size(cover);
 
+  .intro-button-wrapper {
+    padding-top: 70vh;
+  }
+
   section {
     padding: 0;
   }
@@ -424,15 +428,16 @@ $primary-color: #38C5B9;
     //max-height: 80vh;
     overflow: hidden;
     @include box-shadow(0 0 43px -10px black);
-    //position: relative;
-    //margin-top: 40vh;
     position: absolute;
     left: 50%;
     top: 40%;
-
     @include transform(translate(-50%, -50%));
     .flip {
       @include transition(all .5s ease);
+    }
+    .subtitle-divider {
+      padding: 0;
+      margin: 0 auto;
     }
     .front {
       z-index: 11;
@@ -490,23 +495,14 @@ $primary-color: #38C5B9;
         text-align: center;
         position: relative;
         margin-bottom: .75em;
-        &:after {
-          content: '';
-          position: absolute;
-          top: 1.6em;
-          width: 20%;
-          left: 40%;
-          right: 40%;
-          height: 1px;
-          background: $secondarycolor;
-        }
+
       }
       .introduction {
         text-align: center;
         color: $secondarycolor;
         font-style: italic;
       }
-      .contact {
+      .contact-card {
         color: $secondarycolor;
         margin-left: 1.7em;
         font-weight: 300;
@@ -540,7 +536,7 @@ $primary-color: #38C5B9;
   }
   /* HOVER ANIMATIONS */
 
-  .front .top .card-logo, .front .top, .front .top:after, .front .nametroduction, .front .contact {
+  .front .top .card-logo, .front .top, .front .top:after, .front .nametroduction, .front .contact-card {
     @include transition(.7s all ease-in-out);
   }
 
@@ -562,7 +558,7 @@ $primary-color: #38C5B9;
   .flip:hover .front .nametroduction {
     @include transform(translateY(400%));
   }
-  .flip:hover .front .contact {
+  .flip:hover .front .contact-card {
     @include transform(translateY(-52%));
   }
 
@@ -724,7 +720,15 @@ footer {
 }
 
 @media (max-width: 767px) and (orientation: portrait) {
-  .intro .business-card .front .name:after {
-    top: 3.2em;
+  .intro {
+    .intro-button-wrapper {
+      padding-top: 80vh;
+    }
+    .business-card .front .contact-card {
+      font-size: 1.15em;
+      li:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
