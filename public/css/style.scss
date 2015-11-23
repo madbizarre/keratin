@@ -3,13 +3,13 @@
 /* MIXINS
 -------------------------------------------------- */
 
-@mixin animation($value){
+@mixin animation($value) {
   -webkit-animation: $value;
   -o-animation: $value;
   animation: $value;
 }
 
-@mixin animation-delay($value){
+@mixin animation-delay($value) {
   -webkit-animation-delay: $value;
   -moz-animation-delay: $value;
   -o-animation-delay: $value;
@@ -393,23 +393,179 @@ $primary-color: #38C5B9;
   @include border-radius(50%);
 }
 
-
 /* INTRO
 -------------------------------------------------- */
 
 .intro {
   width: 100%;
   height: 100vh;
-  color: $titleColor;
-  background: url(../img/intro.svg) no-repeat 50% 55%;
+  background: url(../img/intro.svg) no-repeat 50% 50%;
   z-index: 99;
   @include background-size(cover);
-  h1 {
-    font-family: 'Open Sans';
-    padding-top: 30vh;
-    text-shadow: 2px 2px 10px black, 0 0 5rem black;
-    padding-bottom: 50px;
+
+  section {
+    padding: 0;
   }
+
+  $secondarycolor: #2a2b39;
+
+  a {
+    color: $secondarycolor;
+    text-decoration: none;
+    @include transition(all .2s ease-in-out);
+    &:hover {
+      color: $color4;
+    }
+  }
+  .business-card {
+    height: 320px;
+    width: 428px;
+    max-width: 80vw;
+    //max-height: 80vh;
+    overflow: hidden;
+    @include box-shadow(0 0 43px -10px black);
+    //position: relative;
+    //margin-top: 40vh;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+
+    @include transform(translate(-50%, -50%));
+    .flip {
+      @include transition(all .5s ease);
+    }
+    .front {
+      z-index: 11;
+      width: 100%;
+      position: absolute;
+      height: 100%;
+      background: #fff;
+      @include box-shadow(0 0 33px -1px rgba(0, 0, 0, 0.45));
+      @include scale(1);
+      @include transition(all .6s ease);
+      .top {
+        height: 50%;
+        background: $color2;
+        &:after {
+          position: absolute;
+          content: '';
+          pointer-events: none;
+        }
+        &:after {
+          left: 50%;
+          width: 2em;
+          height: 2em;
+          @include transform(translateX(-50%) rotate(45deg));
+          bottom: 10.75em;
+          z-index: 10;
+          background: inherit;
+        }
+        .card-logo {
+          display: inline-block;
+          background: $color5 url(../img/logo.svg) center center no-repeat;
+          @include background-size(cover);
+          @include border-radius(50%);
+          color: #fff;
+          z-index: 11;
+          padding: .16em;
+          position: relative;
+          pointer-events: none;
+          @include transform(translateX(-50%));
+          left: 50%;
+          margin-top: .4em;
+          font-size: 4em;
+          width: 1.75em;
+          height: 1.75em;
+        }
+      }
+      .nametroduction {
+        margin-top: 2.4em;
+        @include transform(translateY(0));
+        z-index: 8;
+      }
+      .name {
+        color: $secondarycolor;
+        font-weight: 400;
+        font-size: 1.75em;
+        text-align: center;
+        position: relative;
+        margin-bottom: .75em;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 1.6em;
+          width: 20%;
+          left: 40%;
+          right: 40%;
+          height: 1px;
+          background: $secondarycolor;
+        }
+      }
+      .introduction {
+        text-align: center;
+        color: $secondarycolor;
+        font-style: italic;
+      }
+      .contact {
+        color: $secondarycolor;
+        margin-left: 1.7em;
+        font-weight: 300;
+        font-size: 1.6em;
+        @include transform(translateY(400%));
+        span {
+          color: #2D3244;
+          font-size: 1.7em;
+          width: 1.3em;
+          display: inline-block;
+        }
+        a {
+          position: relative;
+          bottom: .24em
+        }
+        li {
+          margin-bottom: 1em;
+          &:first-child {
+            margin-top: 1em;
+          }
+        }
+      }
+    }
+    .back {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      backface-visibility: hidden;
+      position: absolute;
+    }
+  }
+  /* HOVER ANIMATIONS */
+
+  .front .top .card-logo, .front .top, .front .top:after, .front .nametroduction, .front .contact {
+    @include transition(.7s all ease-in-out);
+  }
+
+  .flip:hover .front .top .card-logo {
+    margin-top: .28em;
+    font-size: 1.6em;
+    margin-left: .15em;
+    @include transform(translateX(0));
+    left: 0;
+  }
+  .flip:hover .front .top {
+    height: 15%;
+    &:after {
+      width: 1.5em;
+      height: 1.5em;
+      bottom: 18.75em;
+    }
+  }
+  .flip:hover .front .nametroduction {
+    @include transform(translateY(400%));
+  }
+  .flip:hover .front .contact {
+    @include transform(translateY(-52%));
+  }
+
 }
 
 /* MAIN CONTENT
@@ -555,3 +711,20 @@ footer {
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .intro {
+    button {
+      display: none;
+    }
+    .business-card {
+      margin-top: 5vh;
+    }
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .intro .business-card .front .name:after {
+    top: 3.2em;
+  }
+}
