@@ -117,10 +117,6 @@ body {
   overflow-x: hidden;
 }
 
-main {
-
-}
-
 section {
   padding: 50px 0;
   h1 {
@@ -189,19 +185,6 @@ hr {
   border: none;
 }
 
-.gray {
-  background-color: #ededed;
-}
-
-.white {
-  background-color: #ffffff;
-}
-
-.dark-blue {
-  background-color: $dark-blue;
-  color: invert($dark-blue);
-}
-
 .bold {
   background: none;
   font-weight: bold;
@@ -209,251 +192,6 @@ hr {
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
-
-#tog {
-  display: none;
-  &:checked ~ nav {
-    @include transform(rotate(-20deg));
-  }
-}
-
-#ham {
-  background: crimson;
-  width: 90px;
-  height: 90px;
-  @include border-radius(50%);
-  box-sizing: border-box;
-  padding: 38px 20px 0 34px;
-  display: block;
-  cursor: pointer;
-  position: fixed;
-  left: -45px;
-  top: -30px;
-  border: 6px solid #000;
-  z-index: 500;
-  opacity: .9;
-  @include transition(opacity .3s);
-  &:hover {
-    opacity: 1;
-  }
-  span {
-    display: block;
-    background: #fff;
-    width: 100%;
-    height: 2px;
-    margin-bottom: 3px;
-    @include transition(transform .3s);
-  }
-}
-
-.nav-desktop {
-  z-index: 499;
-  background: crimson;
-  position: fixed;
-  top: 0;
-  @include transform(translateX(-278px));
-  width: 278px;
-  height: 830px;
-  padding-top: 115px;
-  margin-top: -10px;
-  box-sizing: border-box;
-  @include transition(all .3s ease-in-out);
-  overflow: hidden;
-  li {
-    line-height: 1;
-  }
-  a {
-    text-decoration: none;
-    color: lightsalmon;
-    display: block;
-    text-align: right;
-    font-size: 1.75rem;
-    padding: 18px;
-    width: 95%;
-    border-bottom: 1px solid indianred;
-    @include transition(background .3s);
-    @include transform(rotate(20deg));
-    position: relative;
-    &:hover {
-      background: darkred;
-      color: white;
-      &before {
-        background: darkred
-      }
-    }
-    &:before {
-      content: '';
-      background: none;
-      width: 22px;
-      height: 58px;
-      position: absolute;
-      left: -7%;
-      top: 0px;
-      @include transition(background .3s);
-    }
-  }
-}
-
-$color-background: #F5F5F5;
-$color-main: #FF5252;
-$color-active: #FFF;
-$color-link: #FFF;
-
-$button-height: 27px;
-$button-width: 35px;
-.button_container {
-  position: fixed;
-  top: 10%;
-  right: 2%;
-  height: $button-height;
-  width: $button-width;
-  cursor: pointer;
-  z-index: 1050;
-  @include transition(opacity .25s ease);
-
-  &:hover {
-    opacity: .7;
-  }
-
-  &.active {
-    .top {
-      @include transform(translateY(11px) translateX(0) rotate(45deg));
-      background: $color-active;
-    }
-    .middle {
-      opacity: 0;
-      background: $color-active;
-    }
-
-    .bottom {
-      @include transform(translateY(-11px) translateX(0) rotate(-45deg));
-      background: $color-active;
-    }
-  }
-
-  span {
-    background: $color-main;
-    border: none;
-    height: 5px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    @include transition(all .35s ease);
-    cursor: pointer;
-
-    &:nth-of-type(2) {
-      top: 11px;
-    }
-
-    &:nth-of-type(3) {
-      top: 22px;
-    }
-  }
-}
-
-.overlay {
-  position: fixed;
-  background: $color-main;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  opacity: 0;
-  visibility: hidden;
-  overflow: hidden;
-  -webkit-transition: opacity .35s, visibility .35s, height .35s;
-  -moz-transition: opacity .35s, visibility .35s, height .35s;
-  -ms-transition: opacity .35s, visibility .35s, height .35s;
-  -o-transition: opacity .35s, visibility .35s, height .35s;
-  transition: opacity .35s, visibility .35s, height .35s;
-  &.open {
-    opacity: .9;
-    visibility: visible;
-    height: 100%;
-    z-index: 1049;
-    will-change: opacity, transform;
-    li {
-      @include animation-delay(.35s);
-      @include animation(fadeInRight .5s ease forwards);
-      &:nth-of-type(2) {
-        @include animation-delay(.4s);
-      }
-      &:nth-of-type(3) {
-        @include animation-delay(.45s);
-      }
-      &:nth-of-type(4) {
-        @include animation-delay(.50s);
-      }
-    }
-  }
-  nav {
-    position: relative;
-    height: 70%;
-    top: 50%;
-    @include transform(translateY(-50%));
-    font-size: 50px;
-    font-family: 'Vollkorn', serif;
-    font-weight: 400;
-    text-align: center;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    display: inline-block;
-    position: relative;
-    height: 100%;
-
-    li {
-      display: block;
-      height: 25%;
-      min-height: 50px;
-      position: relative;
-      opacity: 0;
-
-      a {
-        display: block;
-        position: relative;
-        color: $color-link;
-        text-decoration: none;
-        overflow: hidden;
-
-        &:hover:after,
-        &:focus:after,
-        &:active:after {
-          width: 100%;
-        }
-
-        &:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0%;
-          height: 3px;
-          background: $color-link;
-          will-change: transform;
-          @include transform(translateX(-50%));
-          @include transition(.35s);
-        }
-      }
-    }
-  }
-}
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    left: 20%;
-  }
-  100% {
-    opacity: 1;
-    left: 0;
-  }
-}
-
-
 $primary-color: #38C5B9;
 
 @mixin easeOut {
@@ -466,7 +204,7 @@ $primary-color: #38C5B9;
   }
 }
 
-.header {
+.menu-wrapper {
   position: fixed;
   z-index: 5;
   width: 100%;
@@ -485,7 +223,7 @@ $primary-color: #38C5B9;
     width: 28px;
     height: 2px;
     margin: 0 0 4px 0;
-    background: white;
+    background: #795548;
     @include easeOut;
 
     &:last-child {
@@ -641,7 +379,8 @@ $primary-color: #38C5B9;
 .logo {
   width: 200px;
   height: 200px;
-  background: lighten(black, 10);
+  background: $color5 url(../img/logo.png) center center no-repeat;
+  @include background-size(cover);
   border-radius: 50%;
 }
 
@@ -653,13 +392,14 @@ $primary-color: #38C5B9;
   width: 100%;
   height: 100vh;
   color: $titleColor;
-  background: url(../img/intro.jpg) no-repeat 50% 55%;
+  background: url(../img/intro.svg) no-repeat 50% 55%;
   z-index: 99;
   @include background-size(cover);
   h1 {
     font-family: 'Open Sans';
     padding-top: 30vh;
     text-shadow: 2px 2px 10px black, 0 0 5rem black;
+    padding-bottom: 50px;
   }
 }
 
@@ -674,6 +414,40 @@ $primary-color: #38C5B9;
   width: 20%;
   border-top: 1px solid #DDDDDD;
   padding-bottom: 25px;
+}
+
+.product-item-wrapper {
+  height: 375px;
+  margin-bottom: 30px;
+}
+
+.product-item {
+  position: relative;
+  background-color: white;
+  &:before, &:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777;
+    @include box-shadow(0 15px 10px #777);
+    @include transform(rotate(-3deg));
+  }
+  &:after {
+    @include transform(rotate(3deg));
+    right: 10px;
+    left: auto;
+  }
+  img {
+    max-width: 100%;
+  }
+  h4 {
+    height: 2em;
+  }
 }
 
 /* SECOND REVIEWS
@@ -876,7 +650,7 @@ footer {
 }
 
 .contact-title {
-  color: #F96;
+  color: $color5;
   font-size: 30px;
   font-weight: 400;
 }

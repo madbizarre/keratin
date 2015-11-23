@@ -2,32 +2,42 @@
     <div class="container text-center">
         <h1 class="text-uppercase ">Как мы работаем</h1>
         <hr class="subtitle-divider"/>
-    </div>
-</section>
-
-<section class="color2" id="products" data-ng-controller="ProductListController">
-    <div class="container">
-        <h1 class="text-uppercase text-center">Товары</h1>
-        <hr class="subtitle-divider"/>
-        <input type="text" placeholder="Поиск" data-ng-model="query"/>
-        <ul class="list-inline">
-            <li class="col-xs-12 col-sm-4 col-md-3 text-center" style="height: 350px; margin-bottom:30px;"
-                data-ng-repeat="product in products | filter:{name:query}">
-                <h4 style="height: 2em;">{{product.name}}</h4>
-                <img class="img-rounded" data-ng-src="{{product.url}}" alt="" title="{{product.description.short}}"
-                     height="256"/><br/>
-                <small>{{product.volume}} мл</small>
-                <br/>
-                <strong>{{product.price | currency:undefined:0}}</strong><br/>
-                <a data-ng-href="#/product/{{product.id}}">Подробнее</a>
+        <ul class="list-inline text-center">
+            <li class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
+                <img src="img/work/pencil_128px.png" alt="">
+                <h4>Вы оставляете заявку на звонок или звоните нам</h4>
+            </li>
+            <li class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
+                <img src="img/work/chat_128px.png" alt="">
+                <h4>Согласовываем детали</h4>
+            </li>
+            <li class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
+                <img src="img/work/handshake_128px.png" alt="">
+                <h4>Вы забираете заказ сами и оплачиваете при встрече либо оплачиваете заказ и мы отправляем его удобным для Вас способом</h4>
             </li>
         </ul>
     </div>
 </section>
 
-<section class="color1" id="3">
-    <div class="container">
-        <h1 class="text-uppercase text-center">Заголовок 3</h1>
+<section class="color2" id="products" data-ng-controller="ProductListController">
+    <div class="container text-center">
+        <h1 class="text-uppercase">Товары</h1>
         <hr class="subtitle-divider"/>
+        <input type="text" placeholder="Поиск" data-ng-model="query"/>
+        <ul class="list-inline row">
+            <li class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-3 product-item-wrapper"
+                data-ng-repeat="product in products | filter:{name:query}">
+                <div class="product-item">
+                    <h4>{{product.name}}</h4>
+                    <img class="img-rounded" data-ng-src="{{product.url}}" alt="" title="{{product.description.short}}"
+                         height="256"/><br/>
+                    <small>{{product.volume}} мл</small>
+                    <br/>
+                    <strong>{{product.price | currency:undefined:0}}</strong><br/>
+                    <a data-ng-href="#/product/{{product.id}}">Подробнее</a>
+                </div>
+            </li>
+        </ul>
+        <button class="btn btn-default-lg btn-color5 btn-round btn-no-border" data-toggle="modal" data-target="#contactModal">Заказать</button>
     </div>
 </section>
