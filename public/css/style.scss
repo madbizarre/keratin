@@ -388,7 +388,7 @@ $primary-color: #38C5B9;
 .logo {
   width: 200px;
   height: 200px;
-  background: $color5 url(../img/logo.png) center center no-repeat;
+  background: $color5 url(../img/logo.svg) center center no-repeat;
   @include background-size(cover);
   @include border-radius(50%);
 }

@@ -344,7 +344,7 @@ hr {
 .logo {
   width: 200px;
   height: 200px;
-  background: #0ABAB4 url(../img/logo.png) center center no-repeat;
+  background: #0ABAB4 url(../img/logo.svg) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
