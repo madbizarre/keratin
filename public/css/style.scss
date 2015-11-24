@@ -84,6 +84,8 @@ $color2: #99ECEA;
 $color3: #6ADAD7;
 $color4: #39CAC6;
 $color5: #0ABAB4;
+$primary-color: #38C5B9;
+$secondarycolor: #2a2b39;
 
 .color1 {
   background-color: #ffffff;
@@ -192,7 +194,6 @@ hr {
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
-$primary-color: #38C5B9;
 
 @mixin easeOut {
   @include transition(all .4s cubic-bezier(0.23, 1, 0.32, 1));
@@ -231,7 +232,6 @@ $primary-color: #38C5B9;
     }
   }
 
-  // transform burger into 'x'
   &--close {
     @include transform(rotate(180deg));
 
@@ -337,7 +337,6 @@ $primary-color: #38C5B9;
     }
   }
 
-  // add delay to each menu item
   @for $x from 1 through 6 {
     .menu__item:nth-child(#{$x}) {
       -webkit-transition-delay: $x*.1s;
@@ -349,7 +348,6 @@ $primary-color: #38C5B9;
   }
 }
 
-// responsive tablet view
 @include tablet {
   ul.menu__list,
   div.menu__brand {
@@ -384,7 +382,6 @@ $primary-color: #38C5B9;
   }
 }
 
-// make the demo look nice, not required for your own use.
 .logo {
   width: 200px;
   height: 200px;
@@ -411,8 +408,6 @@ $primary-color: #38C5B9;
     padding: 0;
   }
 
-  $secondarycolor: #2a2b39;
-
   a {
     color: $secondarycolor;
     text-decoration: none;
@@ -425,7 +420,6 @@ $primary-color: #38C5B9;
     height: 320px;
     width: 428px;
     max-width: 80vw;
-    //max-height: 80vh;
     overflow: hidden;
     @include box-shadow(0 0 43px -10px black);
     position: absolute;
@@ -573,8 +567,17 @@ $primary-color: #38C5B9;
   padding-bottom: 25px;
 }
 
+.input-group-addon {
+  color: $secondarycolor;
+  background-color: $color2;
+  border: 1px solid $color5;
+}
+
+.input-group[class*=col-] {
+  margin-bottom: 30px;
+}
+
 .product-item-wrapper {
-  height: 375px;
   margin-bottom: 30px;
 }
 
@@ -592,6 +595,7 @@ $primary-color: #38C5B9;
 .product-item {
   position: relative;
   background-color: white;
+  padding: 15px 0;
   &:before, &:after {
     z-index: -1;
     position: absolute;
@@ -740,6 +744,18 @@ footer {
       li:first-child {
         margin-top: 0;
       }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro {
+    height: 70vh;
+    .intro-button-wrapper {
+      padding-top: 50vh;
+    }
+    .business-card {
+      top: 20%;
     }
   }
 }

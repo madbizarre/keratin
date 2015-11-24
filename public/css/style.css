@@ -560,8 +560,15 @@ hr {
   border-top: 1px solid #DDDDDD;
   padding-bottom: 25px; }
 
+.input-group-addon {
+  color: #2a2b39;
+  background-color: #99ECEA;
+  border: 1px solid #0ABAB4; }
+
+.input-group[class*=col-] {
+  margin-bottom: 30px; }
+
 .product-item-wrapper {
-  height: 375px;
   margin-bottom: 30px; }
 
 .product-detail-desc {
@@ -574,7 +581,8 @@ hr {
 
 .product-item {
   position: relative;
-  background-color: white; }
+  background-color: white;
+  padding: 15px 0; }
   .product-item:before, .product-item:after {
     z-index: -1;
     position: absolute;
@@ -719,5 +727,12 @@ footer {
     font-size: 1.15em; }
     .intro .business-card .front .contact-card li:first-child {
       margin-top: 0; } }
+@media (min-width: 1200px) {
+  .intro {
+    height: 70vh; }
+    .intro .intro-button-wrapper {
+      padding-top: 50vh; }
+    .intro .business-card {
+      top: 20%; } }
 
 /*# sourceMappingURL=style.css.map */
