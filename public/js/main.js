@@ -89,6 +89,7 @@
 
         var bindActions = function (){
             burger.addEventListener('click', toggleMenu, false);
+            $('.menu__item').on('click', toggleMenu);
         };
 
         var init = function (){
