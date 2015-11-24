@@ -164,4 +164,18 @@
             $('label[for="inputTel"]').html('Телефон*:');
         }
     });
+
+    var map;
+
+    DG.then(function (){
+        map = DG.map('map', {
+            center: [59.865962, 30.380942],
+            zoom: 15,
+            scrollWheelZoom: false
+        });
+        DG.control.location({position: 'bottomright'}).addTo(map);
+        DG.control.traffic().addTo(map);
+        DG.marker([59.865962, 30.380942]).addTo(map).bindPopup('Самовывоз: г.Санкт-Петербург, метро Международная, Турку 11к2 ');
+    });
+
 })();

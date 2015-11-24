@@ -619,6 +619,24 @@ hr {
   .product-item h4 {
     height: 2em; }
 
+/* MAP
+-------------------------------------------------- */
+.map {
+  padding: 0;
+  width: 100%;
+  height: 400px; }
+  .map .list-inline {
+    margin-bottom: 0; }
+  .map h1 {
+    margin-top: 10px; }
+  .map li:last-child img {
+    width: 100px;
+    height: 100px;
+    background-color: #0ABAB4;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%; }
+
 /* FOOTER
 -------------------------------------------------- */
 footer {
