@@ -565,6 +565,9 @@ hr {
   background-color: #99ECEA;
   border: 1px solid #0ABAB4; }
 
+.form-control {
+  border: 1px solid #0ABAB4; }
+
 .input-group[class*=col-] {
   margin-bottom: 30px; }
 
