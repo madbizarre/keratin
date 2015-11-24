@@ -3,20 +3,23 @@
         <h1 class="text-center text-uppercase">{{product.name}}</h1>
         <hr class="subtitle-divider"/>
         <div class="row">
-            <div class="col-xs-12 col-sm-4 text-center">
-                <img class="img-rounded" data-ng-src="{{product.url}}" title="{{product.description.short}}" alt=""
-                     height="256"/><br/>
+            <div class="col-xs-12 col-sm-4 text-center product-detail-img-wrapper">
+                <div class="product-item">
+                    <img class="img-rounded" data-ng-src="{{product.url}}" title="{{product.description.short}}" alt=""
+                         height="256"/><br/>
 
-                <small>{{product.volume}} мл</small>
-                <br/>
-                <strong>{{product.price | currency:undefined:0}}</strong><br/>
+                    <small>{{product.volume}} мл</small>
+                    <br/>
+                    <strong>{{product.price | currency:undefined:0}}</strong><br/><br/>
 
-                <button class="btn btn-default-lg btn-color5 btn-round btn-no-border" data-toggle="modal" data-target="#contactModal">Заказать</button>
-
+                    <button class="btn btn-default-lg btn-color5 btn-round btn-no-border" data-toggle="modal" data-target="#contactModal">Заказать</button>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-8">
-                <p style="white-space:pre-wrap;">{{product.description.long}}</p>
+                <p class="product-detail-desc">{{product.description.long}}</p>
+                <p>Инструкция на русском языке в комплекте</p>
             </div>
+
         </div>
         <!--        <a data-ng-href="#/product/{{+product.id-1}}">Prev</a>
                 <a data-ng-href="#/product/{{+product.id+1}}">Next</a>-->

@@ -578,6 +578,17 @@ $primary-color: #38C5B9;
   margin-bottom: 30px;
 }
 
+.product-detail-desc {
+  white-space: pre-wrap;
+}
+
+.product-detail-img-wrapper {
+  padding: 0 25px;
+  .product-item {
+    padding: 25px 0;
+  }
+}
+
 .product-item {
   position: relative;
   background-color: white;
