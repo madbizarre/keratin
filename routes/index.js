@@ -17,7 +17,7 @@ Email: ${req.body.email || 'не указан'}
     transporter.sendMail({
         from: `${mail.from} <${mail.user}>`,
         to: mail.to.split(', '),
-        subject: `Заявка с сайта: joindarkside.ru`,
+        subject: mail.from,
         text: text
     }, function (err){
         if (err) return next(err);

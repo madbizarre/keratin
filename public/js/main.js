@@ -118,7 +118,7 @@
             },
             ajaxSuccess = function (data){
                 $btnSubmit.button('reset');
-                yaCounter33794384.reachGoal("sendData");
+                try { yaCounter33794384.reachGoal("sendData"); } catch (err) {}
                 closeAlert();
                 $contactTitle.html('Спасибо, заявка отправлена');
                 $contact.before('<div class="alert alert-success" role="alert"><strong>Мы свяжемся с Вами в ближайшее время.</strong></div>');
